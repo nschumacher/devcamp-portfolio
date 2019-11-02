@@ -5,5 +5,5 @@
     <b>
         <%= p.title %>
     </b> <br/>
-    <%= image_tag p.thumb_image %> <br/>
+    <%= image_tag p.thumb_image if !p.thumb_image.nil? %> <br/>
 <% end %>
