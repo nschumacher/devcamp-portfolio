@@ -5,11 +5,11 @@
 <% @portfolio_items.each do |p| %>
 
     <b>
-        <%= p.title %>
+        <%= link_to p.title, portfolio_path(p) %>
     </b> <br/>
     <p>
     <%= p.body %>
     </p>
     <%= image_tag p.thumb_image if !p.thumb_image.nil? %> <br/>
-    <%= link_to "Edit", edit_portfolio_path(p.id) %> <br/>
+    <%= link_to "Edit", edit_portfolio_path(p) %> <br/>
 <% end %>
