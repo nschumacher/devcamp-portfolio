@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact' # this lets you put whatever you want on the left and it'll map to the path (controller action) on the right
 
 
-  resources :blogs
+  resources :blogs do
+    member do 
+      get :toggle_status
+    end
+  end
 
   root to: 'pages#home'
   
