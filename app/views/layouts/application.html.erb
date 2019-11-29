@@ -18,5 +18,11 @@
             <%= link_to "Login", new_user_session_path %>
         <% end %>
         <%= yield %>
+
+        <% if session[:source] %>
+            <div>
+                Thanks for visiting me from <%= session[:source] %>
+            </div>
+        <% end %>
     </body>
 </html>
