@@ -1,21 +1,23 @@
 class PortfoliosController < ApplicationController
 
     def index
-        @portfolio_items = Portfolio.all
+        @portfolio_items = Portfolio.all # could do .where(subtitle: "Ruby on Rails") to pull back only ones with that subtitle
     end
 
     def new
         @portfolio_item = Portfolio.new
+        3.times { @portfolio_item.technologies.build } # .build is like saying "instantiate this object", so this will instantiate 3 technologies for the portfolio item
     end
 
     def create
-        @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+        @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body,
+            technologies_attributes: [:name]))
 
         respond_to do |format|
             if @portfolio_item.save
-            format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully created.' }
+                format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully created.' }
             else
-            format.html { render :new }
+                format.html { render :new }
             end
         end
     end
@@ -30,9 +32,9 @@ class PortfoliosController < ApplicationController
 
         respond_to do |format|
             if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
-            format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
+                format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
             else
-            format.html { render :edit }
+                format.html { render :edit }
             end
         end
     end
