@@ -20,6 +20,7 @@ gem 'friendly_id'
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'petergate', '~> 2.0', '>= 2.0.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
