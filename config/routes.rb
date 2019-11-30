@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   # Below are for static pages that don't have to pull anything from the db
   #get 'pages/about' this is the same as the one below it
-  get 'about', to: 'pages#about'
+  get 'about', to: 'pages#about', as: 'about_me'
   get 'contact', to: 'pages#contact' # this lets you put whatever you want on the left and it'll map to the path (controller action) on the right
 
 
