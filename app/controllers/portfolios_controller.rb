@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+    layout "portfolio"
 
     def index
         @portfolio_items = Portfolio.all # could do .where(subtitle: "Ruby on Rails") to pull back only ones with that subtitle
